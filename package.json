@@ -1,0 +1,22 @@
+{
+  "name": "obitbot",
+  "version": "0.1.0",
+  "description": "Procedurally generated obituaries.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeMacabre/obitbot.git"
+  },
+  "author": "CodeMacabre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeMacabre/obitbot/issues"
+  },
+  "homepage": "http://codemacabre.com/prj/obitbot/",
+  "dependencies": {
+    "twit": "^2.2.5"
+  }
+}
