@@ -1,3 +1,12 @@
+setInterval(function() {
+  try {
+    tweetIt();
+  }
+  catch (err) {
+    console.log(err);
+  }
+}, 1000 * 60 * 60);
+
 console.log('The bot is starting');
 
 // Setup node packages
@@ -394,7 +403,4 @@ function tweetIt() {
   getRandomGender();
   getRandomCause();
   getRandomNames();
-  setTimeout(tweetIt, 1000*60*30);
 }
-
-tweetIt();
