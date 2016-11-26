@@ -20,18 +20,48 @@ var btnContent = '';
 var tweetContent = {
   status: ''
 };
-var timeOfDeath = 'This morning'; // placeholder
+var factoidCount = 0;
+var factoid = '';
+var timeOfDeath = 'One of them could have been '; // placeholder
 var causeOfDeath = 'heart attack'; // placeholder
 var gender;
 var forename = '';
 var surname = '';
-var epitaph = 'Rest in peace.'; // placeholder
 
 // Get random time of death
 // TODO
 
 // Get random cause of death
 // TODO
+
+function getFactoid(n) {
+  switch(n) {
+    case 0:
+      factoid = '56 million people die every year. ';
+      factoidCount++;
+      break;
+    case 1:
+      factoid = 'Over 4.5 million people die every month. ';
+      factoidCount++;
+      break;
+    case 2:
+      factoid = 'Over 150000 people die every day. ';
+      factoidCount++;
+      break;
+    case 3:
+      factoid = 'Almost 6400 people die every hour. ';
+      factoidCount++;
+      break;
+    case 4:
+      factoid = '106 people die every minute. ';
+      factoidCount++;
+      break;
+    case 5:
+      factoid = '1.8 people die every second. ';
+      factoidCount = 0;
+      break;
+  }
+}
 
 // Get random gender
 function getRandomGender() {
@@ -44,7 +74,9 @@ function getRandomGender() {
 }
 
 // Get random names
-function getRandomNames(callback) {
+//function getRandomNames(callback) {
+function getRandomNames() {
+  btnContent = '';
   console.log('Getting names from behindthename.com...');
   return http.get({
     host: 'www.behindthename.com',
@@ -67,22 +99,41 @@ function getRandomNames(callback) {
       });
     });
     response.on('end', function() {
-      callback();
+      //callback();
     });
   });
 }
 
-// Get random epitaph
-// TODO
-
-getRandomGender();
-getRandomNames(function() {
+function composeTweet() {
   tweetContent = {
-    status: timeOfDeath + ', ' + forename + ' ' + surname + ' died of a ' + causeOfDeath + '. ' + epitaph
+    status: factoid + timeOfDeath + forename + ' ' + surname + ' who could have died of a ' + causeOfDeath + '.'
   };
-  console.log(tweetContent);
-});
+}
 
+function tweetIt() {
+  getFactoid(factoidCount);
+  getRandomGender();
+  //getRandomCause();
+  getRandomNames();
+  composeTweet();
+  if (tweetContent.status.length <= 140) {
+    //console.log(tweetContent.status);
+    console.log('\nTweet stats:');
+    console.log('Gender: ' + gender);
+    console.log('Forename: ' + forename);
+    console.log('Surname: ' + surname);
+    console.log('Cause: ' + causeOfDeath);
+    console.log('Tweet length: ' + tweetContent.status.length + ' characters.');
+  } else {
+    console.log('ERROR! Tweet is too long. Cropping...')
+    tweetContent = {
+      status: 'Today, ' + forename + ' ' + surname + ' could have died of a ' + causeOfDeath + '.'
+    };
+  }
+}
+
+//setInterval(tweetIt, 1000*10);
+tweetIt();
 
 // Send tweet
 /*
