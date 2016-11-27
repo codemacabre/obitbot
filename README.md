@@ -16,7 +16,7 @@ Obituaries are procedurally generated using several data sources:
 
 ## Usage
 
-ObitBot is built using [Node.js](https://nodejs.org/), along with the packages [twit](https://www.npmjs.com/package/twit) to communicate with Twitter and [xml2js](https://www.npmjs.com/package/xml2js) to read the XML output from Behind the Name.
+ObitBot requires two Node packages to be installed in the `node_modules` subdirectory, [twit](https://www.npmjs.com/package/twit) to communicate with Twitter and [xml2js](https://www.npmjs.com/package/xml2js) to read the XML output from Behind the Name.
 
 The bot can be run using the following command:
 ```
@@ -35,6 +35,7 @@ module.exports = {
   timeout_ms:           60*1000
 }
 ```
+
 #### btnapi.js
 ```javascript
 module.exports = {
