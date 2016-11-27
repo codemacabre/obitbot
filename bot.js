@@ -1,12 +1,3 @@
-setInterval(function() {
-  try {
-    tweetIt();
-  }
-  catch (err) {
-    console.log(err);
-  }
-}, 1000 * 60 * 60);
-
 console.log('The bot is starting');
 
 // Setup node packages
@@ -35,6 +26,9 @@ var causeOfDeath = '';
 var gender = ''
 var forename = 'Tess'; // fallback
 var surname = 'Terr'; // fallback
+
+tweetIt();
+setInterval(tweetIt, 1000 * 60 * 60);
 
 // Get random mortality statistic
 function getFactoid(n) {
