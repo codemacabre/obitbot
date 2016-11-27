@@ -5,14 +5,18 @@
 ## Aims
 Despite the morbid nature of this bot, ObitBot is benevolent. The obituaries it tweets are based on real [mortality data](#data), highlighting the rates of death by cause worldwide. ObitBot provides us with a constant (fictional) feed designed to mirror our own species' deaths (albeit at a greatly decreased rate; Twitter would complain if tweets were posted every 1.8 seconds).
 
-These fictional obituaries are assigned a random name, giving them a hint of humanity, making ObitBot a place to confront, and reflect upon our inevitable demise.
+These fictional obituaries are assigned a random name, giving them a hint of humanity, making ObitBot a place to confront, and reflect upon, our inevitable demise.
+
+Although not affiliated with any organisation, ObitBot has been inspired by [The Order of the Good Death](http://www.orderofthegooddeath.com/), specifically the focus on [death positivity](http://www.orderofthegooddeath.com/death-positive).
 
 ## Data
-Obituaries are procedurally generated using several data sources:
+ObitBot's obituaries are procedurally generated using several data sources:
 
 + Names are generated using [Behind the Name](http://www.behindthename.com/) API. Gender is randomly selected and a single forename and surname are retrieved accordingly.
 
 + Cause of death is generated based on probabilities calculated from the [WHO Mortality Database](http://www.who.int/healthinfo/mortality_data/). Data is retrieved from all reporting countries using the latest available year (as of November 2016). This data is categorised into [ICD-10 code chapters](https://icd.codes/icd10cm) and divided by gender.
+
+ObitBot itself is open source, licensed under the [MIT license](./LICENSE.md).
 
 ## Usage
 
@@ -47,6 +51,6 @@ module.exports = {
 
 ObitBot's obituaries are fictitious. Any resemblance to actual persons (living or deceased) is unintentional.
 
-This file only provides basic usage information and it is outside of the scope of this repo to provide additional support. I highly recommend following Daniel Shiffman's excellent [Twitter Bot Tutorial](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6atTSxoRiVnSuOn6JHnq2yV) series for more information.
+This file only provides basic usage information and it is outside of the scope of this repo to provide additional support. I highly recommend following Daniel Shiffman's excellent [Twitter Bot Tutorial](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6atTSxoRiVnSuOn6JHnq2yV) series to learn more.
 
-See [`LICENSE.md`](https://github.com/codemacabre/obitbot/blob/master/LICENSE.md) for more information.
+See [`LICENSE.md`](./LICENSE.md) for more information.
