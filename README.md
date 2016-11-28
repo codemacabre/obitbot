@@ -1,13 +1,13 @@
 # ObitBot
 
-[ObitBot](https://twitter.com/obitbot) is a friendly Twitter bot created using [Node.js](https://nodejs.org) to post procedurally generated obituaries.
+[ObitBot](https://twitter.com/obitbot) is a Twitter bot created using [Node.js](https://nodejs.org) to post procedurally generated obituaries.
 
 ## Aims
-Despite the morbid nature of this bot, ObitBot is benevolent. The obituaries it tweets are based on real [mortality data](#data), highlighting the rates of death by cause worldwide. ObitBot provides us with a constant (fictional) feed designed to mirror our own species' deaths (albeit at a greatly decreased rate; Twitter would complain if tweets were posted every 1.8 seconds).
+Despite the morbid nature of this bot, ObitBot is benevolent. The obituaries it tweets are based on real [mortality data](#data), highlighting the rates of death by cause worldwide. ObitBot provides us with a constant (fictional) feed designed to mirror our own species' deaths (albeit at a greatly decreased rate to comply with Twitter API limits).
 
 These fictional obituaries are assigned a random name, giving them a hint of humanity, making ObitBot a place to confront, and reflect upon, our inevitable demise.
 
-Although not affiliated with any organisation, ObitBot has been inspired by [The Order of the Good Death](http://www.orderofthegooddeath.com/), specifically the focus on [death positivity](http://www.orderofthegooddeath.com/death-positive).
+Although not affiliated with any organisation, ObitBot has been inspired by the work of [The Order of the Good Death](http://www.orderofthegooddeath.com/).
 
 ## Data
 ObitBot's obituaries are procedurally generated using several data sources:
@@ -49,7 +49,7 @@ module.exports = {
 
 ## Disclaimer
 
-ObitBot's obituaries are fictitious. Any resemblance to actual persons (living or deceased) is unintentional.
+ObitBot's obituaries are fictitious. Any resemblance to actual persons (living or deceased) is unintentional and should not be inferred.
 
 This file only provides basic usage information and it is outside of the scope of this repo to provide additional support. I highly recommend following Daniel Shiffman's excellent [Twitter Bot Tutorial](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6atTSxoRiVnSuOn6JHnq2yV) series to learn more.
 
