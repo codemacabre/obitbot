@@ -807,6 +807,7 @@ function composeTweet() {
 
 // Debug mode: print tweet data to console
 function debugMode() {
+  console.log('\n' + tweetContent.status);
   console.log('\nTweet stats:');
   console.log('Gender: ' + gender);
   console.log('Forename: ' + forename);
