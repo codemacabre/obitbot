@@ -29,7 +29,7 @@ var forename = 'Tess'; // fallback
 var surname = 'Terr'; // fallback
 
 tweetIt();
-setInterval(tweetIt, 1000 * 60 * 60);
+setInterval(tweetIt, 1000*60*60*2); // Send tweet every 2hrs
 
 // Get random mortality statistic
 function getFact(n) {
