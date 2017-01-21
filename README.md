@@ -22,9 +22,9 @@ The bot can be run using the following command:
 $ node bot.js
 ```
 
-API keys are required to interact with Twitter. These should be saved in the file `twitterapi.js` (not contained in this repo for obvious security reasons). Use the following formats:
+API keys are required to interact with Twitter. These should be saved in the file `config.js` (not contained in this repo for obvious security reasons). Use the following formats:
 
-#### twitterapi.js
+#### config.js
 ```javascript
 module.exports = {
   consumer_key:         'YOUR-KEY-HERE',
