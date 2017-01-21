@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 + This CHANGELOG
++ Random tombstone generation (via [Processing](https://processing.org/) output to `.png`)
+
+### Removed
++ All names and Behind the Name API ([see reasoning here](./README.md#changes))
 
 ## [1.1.0] - 2016-11-28
 ### Added
