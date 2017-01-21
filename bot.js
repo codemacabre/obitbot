@@ -1,62 +1,89 @@
-console.log('The bot is starting');
+console.log('ObitBot is starting...');
 
-// Setup node packages
+// Ensure NPM packages are installed
+var Twit = require('twit');
+var config = require('./config');
+var exec = require('child_process').exec;
 var fs = require('fs');
-var twit = require('twit');
-var http = require('http');
-var parseString = require('xml2js').parseString;
 
-// Setup Twitter API
-var twitterAPI = require('./twitterapi.js');
-var t = new twit(twitterAPI);
+var T = new Twit(config);
 
-// Setup Behind the Name API
-var btnAPI = require('./btnapi.js');
-var btnAPIKey = btnAPI.key;
-var btnPath = '';
-
-// Setup variables
-var btnContent = '';
-var tweetContent = {
-  status: ''
-};
-var factSelector = 0;
-var factCount = 0;
-var fact = '';
-var causeOfDeath = '';
+var epitaph = '';
 var gender = ''
-var forename = 'Tess'; // fallback
-var surname = 'Terr'; // fallback
+var causeOfDeath = '';
 
-tweetIt();
-setInterval(tweetIt, 1000*60*60*2); // Send tweet every 2hrs
+loop();
 
-// Get random mortality statistic
-function getFact(n) {
-  switch(n) {
+function loop() {
+  var now = new Date();
+  if (now.getMinutes() === 0 || now.getMinutes() === 30) {
+    tweetIt();
+  }
+  now = new Date(); // allow for time passing
+  var delay = 60000 - (now % 60000); // exact ms to next minute interval
+  setTimeout(loop, delay);
+}
+
+// Get random epitaph
+function getRandomEpitaph() {
+  var r = Math.floor(Math.random(19));
+  switch(r) {
     case 0:
-      fact = '56 million people die every year. ';
-      factCount++;
+      epitaph = 'RIP. ';
       break;
     case 1:
-      fact = 'Over 4.5 million people die every month. ';
-      factCount++;
+      epitaph = 'Rest in peace. ';
       break;
     case 2:
-      fact = 'Over 150000 people die every day. ';
-      factCount++;
+      epitaph = 'In memory. ';
       break;
     case 3:
-      fact = 'Almost 6400 people die every hour. ';
-      factCount++;
+      epitaph = 'In loving memory. ';
       break;
     case 4:
-      fact = '106 people die every minute. ';
-      factCount++;
+      epitaph = 'Gone but not forgotten. ';
       break;
     case 5:
-      fact = '1.8 people die every second. ';
-      factCount = 0;
+      epitaph = 'At rest. ';
+      break;
+    case 6:
+      epitaph = 'Forever asleep. ';
+      break;
+    case 7:
+      epitaph = 'Forever asleep. ';
+      break;
+    case 8:
+      epitaph = 'In remembrance. ';
+      break;
+    case 9:
+      epitaph = 'Farewell. ';
+      break;
+    case 10:
+      epitaph = 'Missed. ';
+      break;
+    case 11:
+      epitaph = 'Missed by all. ';
+      break;
+    case 12:
+      epitaph = 'Beloved. ';
+      break;
+    case 13:
+      epitaph = 'Beloved by all. ';
+      break;
+    case 14:
+      epitaph = 'At peace. ';
+      break;
+    case 15:
+      epitaph = 'In our hearts. ';
+      break;
+    case 16:
+      epitaph = 'In our thoughts. ';
+      break;
+    case 17:
+      epitaph = 'Absent from the body. ';
+      break;
+    case 18:
+      epitaph = 'A friend to all. ';
       break;
   }
 }
@@ -751,74 +778,42 @@ function getRandomCause() {
   }
 }
 
-// Get random names
-function getRandomNames() {
-  btnContent = '';
-  btnPath = '/api/random.php?gender=' + gender + '&number=1&randomsurname=yes&key=' + btnAPIKey;
-  console.log('Getting names from behindthename.com...');
-  callback = function(response) {
-    response.on('data', function(chunk) {
-      btnContent += chunk;
-    });
-    response.on('end', function() {
-      parseString(btnContent, function (err, result) {
-        if (err) {
-          console.log('Error parsing XML data!');
-        } else {
-          // Strip ugly XML / JSON structure
-          var json = JSON.stringify(result);
-          json = JSON.parse(json.substring(30, (json.length - 4)));
-
-          // Get both names from remaining JSON array
-          forename = json[0];
-          surname = json[1];
-          composeTweet();
-        }
-      });
-    });
-  };
-  http.get({
-    host: 'www.behindthename.com',
-    path: btnPath
-  }, callback).end();
-}
-
-function composeTweet() {
-  tweetContent = {
-    status: fact + 'Today, ' + forename + ' ' + surname + ' could have died ' + causeOfDeath + '.'
-  };
-  if (tweetContent.status.length > 140) {
-    console.log('ERROR! Tweet is too long. Cropping...')
-    tweetContent = {
-      status: fact + 'Today, ' + forename + ' ' + surname + ' could have died.'
-    };
-  }
-  // Send tweet
-  t.post('statuses/update', tweetContent, tweeted);
-  function tweeted(err, data, response) {
-    if (err) {
-      console.log('ERROR! Tweet failed to send.');
-    } else {
-      console.log('SUCCESS! Tweet sent.');
-    }
-  }
-  //debugMode();
-}
-
-// Debug mode: print tweet data to console
-function debugMode() {
-  console.log('\n' + tweetContent.status);
-  console.log('\nTweet stats:');
-  console.log('Gender: ' + gender);
-  console.log('Forename: ' + forename);
-  console.log('Surname: ' + surname);
-  console.log('Cause: ' + causeOfDeath);
-  console.log('Tweet length: ' + tweetContent.status.length + ' characters.\n');
-}
 
 function tweetIt() {
-  getFact(factCount);
+  // Get text content
+  getRandomEpitaph();
   getRandomGender();
   getRandomCause();
-  getRandomNames();
+
+  // Path to Processing sketch
+  var cmd = 'tombstone/tombstone';
+  exec(cmd, processing);
+
+
+  function processing() {
+    var imgFilename = 'tombstone/output.png'; // Path to image file output from Processing
+    var imgParams = {
+      encoding: 'base64'
+    }
+    var imgTomb = fs.readFileSync(imgFilename, imgParams); // Read image
+
+    T.post('media/upload', { media_data: imgTomb }, uploaded); // Upload image before tweeting
+
+    function uploaded(err, data, response) {
+      var id = data.media_id_string; // Read uploaded image
+      var tweet = {
+        status: epitaph + 'This person died ' + causeOfDeath + '.', // Tweet text content
+        media_ids: [id] // Tweet image content
+      }
+      T.post('statuses/update', tweet, tweeted); // Send tweet
+    }
+
+    function tweeted(err, data, response) {
+      if (err) {
+        console.log('Error! Tweet not sent.');
+      } else {
+        console.log('Success! Tweet sent.');
+      }
+    }
+  }
 }
