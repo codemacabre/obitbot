@@ -5,7 +5,7 @@
 ## Overview
 [ObitBot](https://twitter.com/obitbot) is a Twitter bot created using [Node.js](https://nodejs.org) and [Processing]((http://processing.org/)) to post procedurally generated obituaries.
 
-The obituaries ObitBotit tweets are based on real [mortality data](#data), highlighting the rates of death by cause worldwide. ObitBot provides us with a constant (fictional) feed designed to mirror our own species' deaths (albeit at a greatly decreased rate to comply with Twitter API limits).
+The obituaries ObitBot tweets are based on real [mortality data](#data), highlighting the rates of death by cause worldwide. ObitBot provides us with a constant (fictional) feed designed to mirror our own species' deaths (albeit at a greatly decreased rate to comply with Twitter API limits).
 
 These fictional obituaries are assigned a procedurally generated tombstone, making ObitBot a virtual cemetery and a place to confront, and reflect upon, our inevitable demise.
 
