@@ -1,7 +1,5 @@
 # ObitBot
 
-*NOTE: ObitBot is currently non-functional and has been temporarily deactivated.*
-
 ## Overview
 [ObitBot](https://twitter.com/obitbot) is a Twitter bot created using [Node.js](https://nodejs.org) and [Processing]((http://processing.org/)) to post procedurally generated obituaries.
 
