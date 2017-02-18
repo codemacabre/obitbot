@@ -16,7 +16,7 @@ loop();
 
 function loop() {
   var now = new Date();
-  if (now.getMinutes() === 0 || now.getMinutes() === 30) {
+  if ((now.getHours() % 2 !== 0) && now.getMinutes() === 0) {
     tweetIt();
   }
   now = new Date(); // allow for time passing
