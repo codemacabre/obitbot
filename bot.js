@@ -1,6 +1,6 @@
 console.log('ObitBot is starting...');
 
-// Ensure NPM packages are installed
+// Ensure node packages are installed
 var Twit = require('twit');
 var config = require('./config');
 var exec = require('child_process').exec;
@@ -29,61 +29,61 @@ function getRandomEpitaph() {
   var r = Math.floor(Math.random(19));
   switch(r) {
     case 0:
-      epitaph = 'RIP. ';
+      epitaph = 'RIP.';
       break;
     case 1:
-      epitaph = 'Rest in peace. ';
+      epitaph = 'Rest in peace.';
       break;
     case 2:
-      epitaph = 'In memory. ';
+      epitaph = 'In memory.';
       break;
     case 3:
-      epitaph = 'In loving memory. ';
+      epitaph = 'In loving memory.';
       break;
     case 4:
-      epitaph = 'Gone but not forgotten. ';
+      epitaph = 'Gone but not forgotten.';
       break;
     case 5:
-      epitaph = 'At rest. ';
+      epitaph = 'At rest.';
       break;
     case 6:
-      epitaph = 'Forever asleep. ';
+      epitaph = 'Forever loved.';
       break;
     case 7:
-      epitaph = 'Forever asleep. ';
+      epitaph = 'Forever asleep.';
       break;
     case 8:
-      epitaph = 'In remembrance. ';
+      epitaph = 'In remembrance.';
       break;
     case 9:
-      epitaph = 'Farewell. ';
+      epitaph = 'Farewell.';
       break;
     case 10:
-      epitaph = 'Missed. ';
+      epitaph = 'Missed.';
       break;
     case 11:
-      epitaph = 'Missed by all. ';
+      epitaph = 'Missed by all.';
       break;
     case 12:
-      epitaph = 'Beloved. ';
+      epitaph = 'Beloved.';
       break;
     case 13:
-      epitaph = 'Beloved by all. ';
+      epitaph = 'Beloved by all.';
       break;
     case 14:
-      epitaph = 'At peace. ';
+      epitaph = 'At peace.';
       break;
     case 15:
-      epitaph = 'In our hearts. ';
+      epitaph = 'In our hearts.';
       break;
     case 16:
-      epitaph = 'In our thoughts. ';
+      epitaph = 'In our thoughts.';
       break;
     case 17:
-      epitaph = 'Absent from the body. ';
+      epitaph = 'Absent from the body.';
       break;
     case 18:
-      epitaph = 'A friend to all. ';
+      epitaph = 'A friend to all.';
       break;
   }
 }
@@ -802,7 +802,7 @@ function tweetIt() {
     function uploaded(err, data, response) {
       var id = data.media_id_string; // Read uploaded image
       var tweet = {
-        status: epitaph + 'This person died ' + causeOfDeath + '.', // Tweet text content
+        status: 'Here lies someone who died ' + causeOfDeath + '. ' + epitaph, // Tweet text content
         media_ids: [id] // Tweet image content
       }
       T.post('statuses/update', tweet, tweeted); // Send tweet
