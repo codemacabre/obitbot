@@ -14,13 +14,19 @@ void setup() {
   background(#101013);
   stroke(#ffffff);
   fill(#ffffff);
-  noLoop();
+  drawGround();
+  drawTomb();
+  drawInscription();
+  smooth();
+  save("output.png");
+  //exit();
 }
 
-void draw() {
+void drawGround() {
   // Draw ground
-  line(10, 210, 430, 210);
+}
 
+void drawTomb() {
   // Select type of tombstone
   switch (topSelector) {
     case 0:
@@ -47,13 +53,7 @@ void draw() {
         drawEmblem();
       }
       break;
-    default:
-      break;
-  }
-  // Draw inscription
-  drawInscription();
-  save("output.png");
-  exit();
+  }  
 }
 
 void drawMainStone() {
