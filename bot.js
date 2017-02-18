@@ -26,7 +26,7 @@ function loop() {
 
 // Get random epitaph
 function getRandomEpitaph() {
-  var r = Math.floor(Math.random(19));
+  var r = Math.floor(Math.random() * 19);
   switch(r) {
     case 0:
       epitaph = 'RIP.';
