@@ -35,7 +35,7 @@ public void setup() {
   drawInscription();
   
   save("output.png");
-  //exit();
+  exit();
 }
 
 public void drawGround() {

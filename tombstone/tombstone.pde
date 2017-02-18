@@ -19,7 +19,7 @@ void setup() {
   drawInscription();
   smooth();
   save("output.png");
-  //exit();
+  exit();
 }
 
 void drawGround() {
