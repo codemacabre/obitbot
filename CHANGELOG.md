@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [1.2.0] - 2017-02-18
 ### Added
 + This CHANGELOG
 + Random tombstone generation (via [Processing](https://processing.org/) output to `.png`)
@@ -30,3 +30,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased]: https://github.com/codemacabre/obitbot/compare/v1.1.0...HEAD
 [1.1.0]: https://github.com/codemacabre/obitbot/compare/v1.0.0...v1.1.0
+[1.2.0]: https://github.com/codemacabre/obitbot/compare/v1.1.0...v1.2.0
