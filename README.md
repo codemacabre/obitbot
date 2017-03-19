@@ -1,8 +1,8 @@
 # ObitBot
 
-[![Codeship Build](https://img.shields.io/codeship/7226c9f0-eeee-0134-a8e8-2ea516a13c91/master.svg)](https://app.codeship.com/projects/208747)
+[![Codeship build](https://img.shields.io/codeship/7226c9f0-eeee-0134-a8e8-2ea516a13c91/master.svg)](https://app.codeship.com/projects/208747)
 [![GitHub issues](https://img.shields.io/github/issues/codemacabre/obitbot.svg)](https://github.com/codemacabre/obitbot/issues)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/CodeMacabre/obitbot/master/LICENSE.md)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/CodeMacabre/obitbot/blob/master/LICENSE.md)
 
 ## Overview
 [ObitBot](https://twitter.com/obitbot) is a Twitter bot created using [Node.js](https://nodejs.org) and [Processing]((http://processing.org/)) to post procedurally generated obituaries.
