@@ -1,5 +1,5 @@
 {
-  "name": "obitbot",
+  "name": "obituary-bot",
   "version": "1.2.0",
   "description": "Procedurally generated obituaries.",
   "main": "bot.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeMacabre/obitbot.git"
+    "url": "git+https://github.com/CodeMacabre/obituary-bot.git"
   },
   "author": "CodeMacabre",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CodeMacabre/obitbot/issues"
+    "url": "https://github.com/CodeMacabre/obituary-bot/issues"
   },
-  "homepage": "http://codemacabre.com/prj/obitbot/",
+  "homepage": "https://codemacabre.com/prj/obituary-bot/",
   "dependencies": {
     "twit": "^2.2.5"
   }
