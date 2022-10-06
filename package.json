@@ -1,6 +1,6 @@
 {
   "name": "obitbot",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Procedurally generated obituaries.",
   "main": "bot.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeMacabre/obitbot.git"
+    "url": "git+https://github.com/codemacabre/obitbot.git"
   },
-  "author": "CodeMacabre",
-  "license": "MIT",
+  "author": "Myles Lewando",
+  "license": "Hippocratic-3.0",
   "bugs": {
-    "url": "https://github.com/CodeMacabre/obitbot/issues"
+    "url": "https://github.com/codemacabre/obitbot/issues"
   },
-  "homepage": "http://codemacabre.com/prj/obitbot/",
+  "homepage": "https://github.com/codemacabre/obitbot#readme",
   "dependencies": {
     "twit": "^2.2.5"
   }
